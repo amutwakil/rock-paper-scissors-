@@ -5,9 +5,78 @@
     <title>Rock Paper Zift</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <script>
+
+        function computerPlay(){
+            let cInt = Math.floor(Math.random()*3);
+            let computerSelection;
+
+            switch (cInt){
+                case 0:
+                    computerSelection = "rock";
+                    break;
+                case 1:
+                    computerSelection = "paper";
+                    break;
+                case 2:
+                    computerSelection = "scissors"
+                    break;
+            }
+
+            return computerSelection; //"rock"
+        
+        }
+
+        function iPlay(){
+            let playerSelection = prompt("pick a hand");
+            playerSelection.toLowerCase;
+            return playerSelection; //paper
+        }
+
+        function playRound(computerPlay, iPlay){
+            
+
+            // why the fuck is iPlay not a function you dumbass console??
+            let p = iPlay(); //playerSelection 
+            let c = computerPlay(); // computerSelection 
+
+            //rock = 0, paper = 1, scissors = 2
+            console.log("player hand is " + p);
+            console.log("computer hand is " + c);
+
+            if (p == c){ // if same
+    			return "its a draw"
+            }
+            
+            if (p == "rock"){ //you're rock
+                if (c == "paper"){ // they're paper
+				    return "You lose! Paper beats rock";
+                } else { //they're scissors
+                    return "You win! Rock beats scissors";
+                }
+            }
+
+            if (p == "paper"){ //you're paper
+                if (c == "rock"){ //they're rock
+                    return "You win! Paper beats rock"
+                } else{ //they're scssors
+                    return "You lose! Scissors beats paper"
+                }
+            }
+
+            if (p == "scissors"){ //you're scissors
+                if (c == "rock"){// they're rock
+                    return "You lose! Rock beats scissors"
+                } else{ //they're paper
+                    return "You win! Scissors beats paper"
+                }
+            }
+        }
+
+        console.log(playRound(computerPlay, iPlay));
+
+    </script>
 </head>
 <body>
-    
 </body>
 </html>
